@@ -43,7 +43,7 @@ public class CsvGenerator {
         generateRow();
         writer.write(rowBuilder.toString());
         rowBuilder.setLength(0);
-        if (index % 10000 == 0) {
+        if (index % 20000 == 0) {
           System.out.println(index);
           writer.flush();
         }

@@ -21,6 +21,10 @@ public class GeneratorUtil {
   public static Generator getGenerator(Column column) {
     if (column.getDataType() instanceof StringType) {
       if (column.getCardinality() == 0) {
+        StringType type = (StringType) column.getDataType();
+        if (type.getMinLen() == 0 && type.getMaxLen() == 0) {
+          return new DefaultGenerator();
+        }
         return new StringGenerator(column);
       } else {
         return new CardinalityStringGenerator(column);
