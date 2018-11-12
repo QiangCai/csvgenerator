@@ -1,0 +1,73 @@
+package org.david.data.table;
+
+import org.david.data.datatype.BigIntType;
+import org.david.data.datatype.DataType;
+import org.david.data.datatype.DoubleType;
+import org.david.data.datatype.IntType;
+import org.david.data.datatype.StringType;
+import org.david.data.datatype.TimestampType;
+
+public class SchemaBuilder {
+
+  private int columnIndex = 0;
+
+  private int columnNum = 0;
+
+  private Column[] columns;
+
+  private SchemaBuilder(int columnNum) {
+    this.columnNum = columnNum;
+    this.columns = new Column[columnNum];
+  }
+
+  public static SchemaBuilder builder(int columnNum) {
+    return new SchemaBuilder(columnNum);
+  }
+
+  private Column column(DataType dataType) {
+    return new Column("col" + (columnIndex + 1), dataType);
+  }
+
+  private Column column(DataType dataType, boolean isIncreamental) {
+    return new Column("col" + (columnIndex + 1), dataType, isIncreamental);
+  }
+
+  public SchemaBuilder stringColumn(int minLen, int maxLen) {
+    columns[columnIndex] = column(new StringType(minLen, maxLen));
+    columnIndex++;
+    return this;
+  }
+
+  public SchemaBuilder intColumn(int min, int max) {
+    columns[columnIndex] = column(new IntType(min, max));
+    columnIndex++;
+    return this;
+  }
+
+  public SchemaBuilder bigintColumn(long min, long max) {
+    return bigintColumn(min, max, false);
+  }
+
+  public SchemaBuilder bigintColumn(long min, long max, boolean isIncreamental) {
+    columns[columnIndex] = column(new BigIntType(min, max), isIncreamental);
+    columnIndex++;
+    return this;
+  }
+
+  public SchemaBuilder doubleColumn(int min, int max, int scale) {
+    columns[columnIndex] = column(new DoubleType(min, max, scale));
+    columnIndex++;
+    return this;
+  }
+
+  public SchemaBuilder timestampColumn(String format, String start, int days) {
+    columns[columnIndex] = column(new TimestampType(format, start, days));
+    columnIndex++;
+    return this;
+  }
+
+  public Column[] getColumns() {
+    return columns;
+  }
+
+}
