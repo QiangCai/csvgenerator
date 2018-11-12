@@ -1,9 +1,5 @@
 package org.david.data;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
-
 import org.david.data.file.CsvGenerator;
 import org.david.data.file.CsvRequirement;
 import org.david.data.table.Column;
@@ -12,24 +8,16 @@ import org.david.data.table.SchemaBuilder;
 
 public class App {
   public static void main(String[] args) throws InterruptedException {
+    if (args.length < 3) {
+      System.err.println("Usage: App <file path> <row count> <start id>");
+      System.exit(0);
+    }
 
-    ExecutorService service = Executors.newFixedThreadPool(3);
+    String filePath = args[0];
+    long rowCount = Long.parseLong(args[1]);
+    long startId = Long.parseLong(args[2]);
 
-    service.submit(new Runnable() {
-      @Override public void run() {
-        generateFile("/opt/bigdata/data/test/datafile1.csv", 1000000, 1);
-      }
-    });
-
-    service.submit(new Runnable() {
-      @Override public void run() {
-        generateFile("/opt/bigdata/data/test/datafile2.csv", 1000000, 1000001);
-      }
-    });
-
-    service.shutdown();
-    service.awaitTermination(1, TimeUnit.DAYS);
-
+    generateFile(filePath, rowCount, startId);
   }
 
   private static void generateFile(String filePath, long rowCount, long startId) {
