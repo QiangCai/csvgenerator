@@ -32,8 +32,18 @@ public class SchemaBuilder {
     return new Column("col" + (columnIndex + 1), dataType, isIncreamental);
   }
 
+  private Column column(DataType dataType, int cardinality) {
+    return new Column("col" + (columnIndex + 1), dataType, cardinality);
+  }
+
   public SchemaBuilder stringColumn(int minLen, int maxLen) {
     columns[columnIndex] = column(new StringType(minLen, maxLen));
+    columnIndex++;
+    return this;
+  }
+
+  public SchemaBuilder cardinalityStringColumn(int len, int cardinality) {
+    columns[columnIndex] = column(new StringType(len, len), cardinality);
     columnIndex++;
     return this;
   }
@@ -45,11 +55,13 @@ public class SchemaBuilder {
   }
 
   public SchemaBuilder bigintColumn(long min, long max) {
-    return bigintColumn(min, max, false);
+    columns[columnIndex] = column(new BigIntType(min, max));
+    columnIndex++;
+    return this;
   }
 
-  public SchemaBuilder bigintColumn(long min, long max, boolean isIncreamental) {
-    columns[columnIndex] = column(new BigIntType(min, max), isIncreamental);
+  public SchemaBuilder bigintColumn(long start, boolean isIncreamental) {
+    columns[columnIndex] = column(new BigIntType(start, start), isIncreamental);
     columnIndex++;
     return this;
   }

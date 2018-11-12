@@ -20,7 +20,11 @@ public class GeneratorUtil {
 
   public static Generator getGenerator(Column column) {
     if (column.getDataType() instanceof StringType) {
-      return new StringGenerator(column);
+      if (column.getCardinality() == 0) {
+        return new StringGenerator(column);
+      } else {
+        return new CardinalityStringGenerator(column);
+      }
     } else if (column.getDataType() instanceof IntType) {
       return new IntGenerator(column);
     } else if (column.getDataType() instanceof BigIntType) {
