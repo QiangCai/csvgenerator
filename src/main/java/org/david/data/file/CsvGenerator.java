@@ -41,7 +41,16 @@ public class CsvGenerator {
     FileSystem fileSystem = null;
     FSDataOutputStream writer = null;
     try {
-      fileSystem = filePath.getFileSystem(new Configuration());
+      Configuration hadoopConfig = new Configuration();
+      hadoopConfig.set("fs.hdfs.impl",
+          org.apache.hadoop.hdfs.DistributedFileSystem.class.getName()
+      );
+      hadoopConfig.set("fs.file.impl",
+          org.apache.hadoop.fs.LocalFileSystem.class.getName()
+      );
+
+      fileSystem = filePath.getFileSystem(hadoopConfig);
+
       writer = fileSystem.create(filePath, true, 1024 * 1024, (short) 2, 64 * 1024 * 1024);
       rowBuilder = new StringBuilder(columnCount * 20);
 
