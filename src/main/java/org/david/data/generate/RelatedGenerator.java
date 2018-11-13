@@ -14,7 +14,7 @@ public class RelatedGenerator implements Generator {
   }
 
   @Override public void generate(StringBuilder row) {
-    row.append(random.nextInt(10));
+    row.append(random.nextInt(5));
     generator.repeat(row);
   }
 

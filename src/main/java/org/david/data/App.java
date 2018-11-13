@@ -66,7 +66,7 @@ public class App {
         //.stringColumn(4, 6)
         .nullColumn()
         //009 TIMESTAMP
-        .timestampColumn("yyyy-MM-dd HH:mm:ss", "2016-01-01", 100)
+        .timestampColumn("yyyy-MM-dd", "2016-01-01", 1)
         //010 STRING
         //.stringColumn(0, 0)
         .nullColumn()
