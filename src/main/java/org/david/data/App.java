@@ -8,19 +8,19 @@ import org.david.data.table.SchemaBuilder;
 
 public class App {
   public static void main(String[] args) throws InterruptedException {
-    if (args.length < 3) {
-      System.err.println("Usage: App <file path> <row count> <start id>");
+    if (args.length < 4) {
+      System.err.println("Usage: App <file path> <row count> <start id> <phone number cardinality>");
       System.exit(0);
     }
 
     String filePath = args[0];
     long rowCount = Long.parseLong(args[1]);
     long startId = Long.parseLong(args[2]);
-
-    generateFile(filePath, rowCount, startId);
+    int cardinality = Integer.parseInt(args[3]);
+    generateFile(filePath, rowCount, startId, cardinality);
   }
 
-  private static void generateFile(String filePath, long rowCount, long startId) {
+  private static void generateFile(String filePath, long rowCount, long startId, int cardinality) {
     long t1 = System.currentTimeMillis();
     System.out.println("Start to generate data file ......");
 
@@ -28,7 +28,7 @@ public class App {
 
     System.out.println("file path: " + requirement.getFilePath());
 
-    Column[] columns = createSchema(startId);
+    Column[] columns = createSchema(startId, cardinality);
     // SORT_COLUMNS: 39,40,41    53
     ColumnRelation columnRelation = new ColumnRelation(38, new int[] { 39, 40 });
 
@@ -41,7 +41,7 @@ public class App {
     System.out.println("taken " + (t2 - t1) + " ms");
   }
 
-  private static Column[] createSchema(long startId) {
+  private static Column[] createSchema(long startId, int cardinality) {
     SchemaBuilder builder = SchemaBuilder.builder(107)
         //001 BIGINT
         .bigintColumn(startId, true)
@@ -155,7 +155,7 @@ public class App {
         //.stringColumn(4, 6)
         .nullColumn()
         //039 STRING
-        .phoneNumber(10000000)
+        .phoneNumber(cardinality)
         //040 STRING
         .stringColumn(4, 6)
         //041 STRING
@@ -191,7 +191,7 @@ public class App {
         //052 STRING
         .stringColumn(0, 0)
         //053 STRING
-        .phoneNumber(10000000)
+        .phoneNumber(cardinality)
         //054 STRING
         //.stringColumn(4, 6)
         .nullColumn()
@@ -203,7 +203,7 @@ public class App {
         //057 STRING
         .stringColumn(0, 0)
         //058 DOUBLE
-        .doubleColumn(1, 10000, 2)
+        .doubleColumn(1, 100, 2)
         //059 DOUBLE
         //.doubleColumn(1, 10000, 2)
         .nullColumn()
@@ -315,7 +315,7 @@ public class App {
         //.stringColumn(4, 6)
         .nullColumn()
         //099 BIGINT
-        .bigintColumn(0, 10000000)
+        .bigintColumn(0, 10000)
         //100 BIGINT
         //.bigintColumn(0, 10000000)
         .nullColumn()
@@ -336,7 +336,7 @@ public class App {
         //.bigintColumn(0, 10000000)
         .nullColumn()
         //107 INT
-        .intColumn(1, 1000000);
+        .intColumn(1, 1000);
 
     return builder.getColumns();
   }

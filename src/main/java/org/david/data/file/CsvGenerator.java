@@ -1,8 +1,12 @@
 package org.david.data.file;
 
-import java.io.FileWriter;
 import java.io.IOException;
+import java.text.NumberFormat;
 
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.FSDataOutputStream;
+import org.apache.hadoop.fs.FileSystem;
+import org.apache.hadoop.fs.Path;
 import org.david.data.generate.Generator;
 import org.david.data.generate.GeneratorUtil;
 import org.david.data.table.Column;
@@ -32,25 +36,49 @@ public class CsvGenerator {
     this.columnRelation = columnRelation;
     createGenerators();
 
-    try (FileWriter writer = new FileWriter(requirement.getFilePath())) {
+    Path filePath = new Path(requirement.getFilePath());
+
+    FileSystem fileSystem = null;
+    FSDataOutputStream writer = null;
+    try {
+      fileSystem = filePath.getFileSystem(new Configuration());
+      writer = fileSystem.create(filePath, true, 1024 * 1024, (short) 2, 64 * 1024 * 1024);
       rowBuilder = new StringBuilder(columnCount * 20);
 
       generateRow0();
-      writer.write(rowBuilder.toString());
+      writer.write(rowBuilder.toString().getBytes());
       rowBuilder.setLength(0);
 
-      for (long index = 1; index < rowCount; index++) {
+      NumberFormat numberFormat = NumberFormat.getInstance();
+      long index = 1;
+      for (; index < rowCount; index++) {
         generateRow();
-        writer.write(rowBuilder.toString());
+        writer.write(rowBuilder.toString().getBytes());
         rowBuilder.setLength(0);
-        if (index % 20000 == 0) {
-          System.out.println(index);
-          writer.flush();
+        if (index % 200000 == 0) {
+          System.out.println(numberFormat.format(index));
+          // writer.flush();
         }
       }
       writer.flush();
+      System.out.println(numberFormat.format(index));
     } catch (IOException e) {
       e.printStackTrace();
+    } finally {
+      if (writer != null) {
+        try {
+          writer.close();
+        } catch (IOException e) {
+          e.printStackTrace();
+        }
+      }
+      if (fileSystem != null) {
+        try {
+          fileSystem.close();
+        } catch (IOException e) {
+          e.printStackTrace();
+        }
+      }
     }
   }
 
