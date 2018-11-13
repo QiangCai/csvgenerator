@@ -48,129 +48,178 @@ public class App {
         //002 STRING
         .stringColumn(4, 6)
         //003 INT
-        .intColumn(1, 1000000)
+        //.intColumn(1, 1000000)
+        .nullColumn()
         //004 INT
-        .intColumn(1, 1)
+        //.intColumn(1, 1)
+        .nullColumn()
         //005 STRING
-        .stringColumn(4, 6)
+        //.stringColumn(4, 6)
+        .nullColumn()
         //006 STRING
-        .stringColumn(0, 0)
+        //.stringColumn(0, 0)
+        .nullColumn()
         //007 INT
-        .intColumn(1, 1)
+        //.intColumn(1, 1)
+        .nullColumn()
         //008 STRING
-        .stringColumn(4, 6)
+        //.stringColumn(4, 6)
+        .nullColumn()
         //009 TIMESTAMP
         .timestampColumn("yyyy-MM-dd HH:mm:ss", "2016-01-01", 100)
         //010 STRING
-        .stringColumn(4, 6)
+        //.stringColumn(0, 0)
+        .nullColumn()
         //011 STRING
-        .stringColumn(0, 0)
+        //.stringColumn(0, 0)
+        .nullColumn()
         //012 INT
-        .intColumn(1, 1)
+        //.intColumn(1, 1)
+        .nullColumn()
         //013 STRING
-        .stringColumn(4, 6)
+        //.stringColumn(4, 6)
+        .nullColumn()
         //014 STRING
-        .stringColumn(0, 0)
+        //.stringColumn(0, 0)
+        .nullColumn()
         //015 STRING
-        .stringColumn(4, 6)
+        //.stringColumn(0, 0)
+        .nullColumn()
         //016 STRING
-        .stringColumn(0, 0)
+        //.stringColumn(4, 6)
+        .nullColumn()
         //017 STRING
-        .stringColumn(4, 6)
+        //.stringColumn(0, 0)
+        .nullColumn()
         //018 STRING
-        .stringColumn(0, 0)
+        //.stringColumn(0, 0)
+        .nullColumn()
         //019 STRING
-        .stringColumn(4, 6)
+        //.stringColumn(0, 0)
+        .nullColumn()
         //020 STRING
-        .stringColumn(0, 0)
+        //.stringColumn(0, 0)
+        .nullColumn()
         //021 STRING
-        .stringColumn(4, 6)
+        //.stringColumn(4, 6)
+        .nullColumn()
         //022 STRING
-        .stringColumn(0, 0)
+        //.stringColumn(0, 0)
+        .nullColumn()
         //023 STRING
-        .stringColumn(4, 6)
+        //.stringColumn(0, 0)
+        .nullColumn()
         //024 STRING
-        .stringColumn(0, 0)
+        //.stringColumn(0, 0)
+        .nullColumn()
         //025 STRING
-        .stringColumn(4, 6)
+        //.stringColumn(4, 6)
+        .nullColumn()
         //026 INT
-        .intColumn(1, 1000000)
+        //.intColumn(1, 1000000)
+        .nullColumn()
         //027 INT
-        .intColumn(1, 1000000)
+        //.intColumn(1, 1000000)
+        .nullColumn()
         //028 STRING
-        .stringColumn(0, 0)
+        //.stringColumn(0, 0)
+        .nullColumn()
         //029 BIGINT
-        .stringColumn(4, 6)
+        //.stringColumn(4, 6)
+        .nullColumn()
         //030 BIGINT
-        .stringColumn(0, 0)
+        //.stringColumn(0, 0)
+        .nullColumn()
         //031 STRING
-        .stringColumn(4, 6)
+        //.stringColumn(4, 6)
+        .nullColumn()
         //032 STRING
-        .stringColumn(0, 0)
+        //.stringColumn(0, 0)
+        .nullColumn()
         //033 STRING
-        .stringColumn(4, 6)
+        //.stringColumn(4, 6)
+        .nullColumn()
         //034 STRING
-        .stringColumn(0, 0)
+        //.stringColumn(0, 0)
+        .nullColumn()
         //035 STRING
-        .stringColumn(4, 6)
+        //.stringColumn(4, 6)
+        .nullColumn()
         //036 STRING
-        .stringColumn(4, 6)
+        //.stringColumn(4, 6)
+        .nullColumn()
         //037 INT
-        .intColumn(1, 1000000)
+        //.intColumn(1, 1000000)
+        .nullColumn()
         //038 STRING
-        .stringColumn(4, 6)
+        //.stringColumn(4, 6)
+        .nullColumn()
         //039 STRING
-        .cardinalityStringColumn(11, 10000000)
+        .phoneNumber(10000000)
         //040 STRING
         .stringColumn(4, 6)
         //041 STRING
         .stringColumn(4, 6)
         //042 STRING
-        .stringColumn(4, 6)
+        //.stringColumn(4, 6)
+        .nullColumn()
         //043 STRING
         .stringColumn(4, 6)
         //044 DOUBLE
-        .doubleColumn(1, 10000, 2)
+        //.doubleColumn(1, 10000, 2)
+        .nullColumn()
         //045 DOUBLE
-        .doubleColumn(1, 10000, 2)
+        //.doubleColumn(1, 10000, 2)
+        .nullColumn()
         //046 STRING
-        .stringColumn(0, 0)
+        //.stringColumn(0, 0)
+        .nullColumn()
         //047 STRING
-        .stringColumn(4, 6)
+        //.stringColumn(4, 6)
+        .nullColumn()
         //048 STRING
-        .stringColumn(0, 0)
+        //.stringColumn(0, 0)
+        .nullColumn()
         //049 STRING
-        .stringColumn(4, 6)
+        //.stringColumn(4, 6)
+        .nullColumn()
         //050 STRING
         .stringColumn(0, 0)
         //051 STRING
-        .stringColumn(4, 6)
+        //.stringColumn(4, 6)
+        .nullColumn()
         //052 STRING
         .stringColumn(0, 0)
         //053 STRING
-        .cardinalityStringColumn(11, 10000000)
+        .phoneNumber(10000000)
         //054 STRING
-        .stringColumn(4, 6)
+        //.stringColumn(4, 6)
+        .nullColumn()
         //055 STRING
         .stringColumn(0, 0)
         //056 STRING
-        .stringColumn(4, 6)
+        //.stringColumn(4, 6)
+        .nullColumn()
         //057 STRING
         .stringColumn(0, 0)
         //058 DOUBLE
         .doubleColumn(1, 10000, 2)
         //059 DOUBLE
-        .doubleColumn(1, 10000, 2)
+        //.doubleColumn(1, 10000, 2)
+        .nullColumn()
         //060 STRING
-        .stringColumn(4, 6)
+        //.stringColumn(4, 6)
+        .nullColumn()
         //061 STRING
         .stringColumn(0, 0)
         //062 STRING
-        .stringColumn(4, 6)
+        //.stringColumn(4, 6)
+        .nullColumn()
         //063 STRING
         .stringColumn(0, 0)
         //064 STRING
-        .stringColumn(4, 6)
+        //.stringColumn(4, 6)
+        .nullColumn()
         //065 STRING
         .stringColumn(0, 0)
         //066 TIMESTAMP
@@ -183,81 +232,109 @@ public class App {
         //.timestampColumn("yyyy-MM-dd HH:mm:ss", "2016-01-01", 100)
         .stringColumn(0, 0)
         //069 BIGINT
-        .bigintColumn(0, 10000000)
+        //.bigintColumn(0, 10000000)
+        .nullColumn()
         //070 INT
-        .intColumn(1, 1000000)
+        //.intColumn(1, 1000000)
+        .nullColumn()
         //071 STRING
         .stringColumn(0, 0)
         //072 STRING
-        .stringColumn(4, 6)
+        //.stringColumn(4, 6)
+        .nullColumn()
         //073 STRING
         .stringColumn(0, 0)
         //074 STRING
-        .stringColumn(4, 6)
+        //.stringColumn(4, 6)
+        .nullColumn()
         //075 TIMESTAMP
-        .timestampColumn("yyyy-MM-dd HH:mm:ss", "2016-01-01", 100)
+        //.timestampColumn("yyyy-MM-dd HH:mm:ss", "2016-01-01", 100)
+        .stringColumn(0, 0)
         //076 STRING
-        .stringColumn(4, 6)
+        //.stringColumn(4, 6)
+        .nullColumn()
         //077 INT
-        .intColumn(1, 1000000)
+        //.intColumn(1, 1000000)
+        .stringColumn(0, 0)
         //078 STRING
-        .stringColumn(4, 6)
+        //.stringColumn(4, 6)
+        .nullColumn()
         //079 INT
-        .intColumn(1, 1000000)
+        //.intColumn(1, 1000000)
+        .stringColumn(0, 0)
         //080 INT
-        .intColumn(1, 1000000)
+        //.intColumn(1, 1000000)
+        .stringColumn(0, 0)
         //081 STRING
-        .stringColumn(4, 6)
+        //.stringColumn(4, 6)
+        .nullColumn()
         //082 INT
-        .intColumn(1, 1000000)
+        //.intColumn(1, 1000000)
+        .nullColumn()
         //083 BIGINT
-        .bigintColumn(0, 10000000)
+        //.bigintColumn(0, 10000000)
+        .nullColumn()
         //084 INT
-        .intColumn(1, 1000000)
+        //.intColumn(1, 1000000)
+        .nullColumn()
         //085 INT
-        .intColumn(1, 1000000)
+        //.intColumn(1, 1000000)
+        .nullColumn()
         //086 INT
-        .intColumn(1, 1000000)
+        //.intColumn(1, 1000000)
+        .nullColumn()
         //087 STRING
-        .stringColumn(0, 0)
+        .nullColumn()
         //088 STRING
-        .stringColumn(4, 6)
+        //.stringColumn(4, 6)
+        .nullColumn()
         //089 STRING
-        .stringColumn(0, 0)
+        .nullColumn()
         //090 STRING
-        .stringColumn(4, 6)
+        //.stringColumn(4, 6)
+        .nullColumn()
         //091 STRING
-        .stringColumn(0, 0)
+        .nullColumn()
         //092 STRING
-        .stringColumn(4, 6)
+        //.stringColumn(4, 6)
+        .nullColumn()
         //093 INT
-        .intColumn(1, 1000000)
+        //.intColumn(1, 1000000)
+        .nullColumn()
         //094 TIMESTAMP
-        .timestampColumn("yyyy-MM-dd HH:mm:ss", "2016-01-01", 100)
+        //.timestampColumn("yyyy-MM-dd HH:mm:ss", "2016-01-01", 100)
+        .nullColumn()
         //095 STRING
         .stringColumn(0, 0)
         //096 STRING
-        .stringColumn(4, 6)
+        //.stringColumn(4, 6)
+        .nullColumn()
         //097 STRING
         .stringColumn(0, 0)
         //098 STRING
-        .stringColumn(4, 6)
+        //.stringColumn(4, 6)
+        .nullColumn()
         //099 BIGINT
         .bigintColumn(0, 10000000)
         //100 BIGINT
-        .bigintColumn(0, 10000000)
+        //.bigintColumn(0, 10000000)
+        .nullColumn()
         //101 STRING
         .stringColumn(0, 0)
         //102 DOUBLE
-        .doubleColumn(1, 10000, 2)
+        //.doubleColumn(1, 10000, 2)
+        .nullColumn()
         //103 DOUBLE
-        .doubleColumn(1, 10000, 2)
+        //.doubleColumn(1, 10000, 2)
+        .nullColumn()
         //104 STRING
         .stringColumn(0, 0)
         //105 STRING
-        .stringColumn(4, 6)
+        //.stringColumn(4, 6)
+        .nullColumn()
         //106 BIGINT
-        .bigintColumn(0, 10000000)
+        //.bigintColumn(0, 10000000)
+        .nullColumn()
         //107 INT
         .intColumn(1, 1000000);
 

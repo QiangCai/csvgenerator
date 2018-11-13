@@ -36,14 +36,20 @@ public class SchemaBuilder {
     return new Column("col" + (columnIndex + 1), dataType, cardinality);
   }
 
+  public SchemaBuilder nullColumn() {
+    columns[columnIndex] = column(new StringType(0, 0));
+    columnIndex++;
+    return this;
+  }
+
   public SchemaBuilder stringColumn(int minLen, int maxLen) {
     columns[columnIndex] = column(new StringType(minLen, maxLen));
     columnIndex++;
     return this;
   }
 
-  public SchemaBuilder cardinalityStringColumn(int len, int cardinality) {
-    columns[columnIndex] = column(new StringType(len, len), cardinality);
+  public SchemaBuilder phoneNumber(int cardinality) {
+    columns[columnIndex] = column(new StringType(11, 11), cardinality);
     columnIndex++;
     return this;
   }
@@ -77,6 +83,7 @@ public class SchemaBuilder {
     columnIndex++;
     return this;
   }
+
 
   public Column[] getColumns() {
     return columns;

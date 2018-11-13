@@ -35,11 +35,13 @@ public class TimestampGenerator implements Generator {
     dateFormat = new SimpleDateFormat(type.getFormat());
 
     calendar.setTime(startDate);
-
   }
 
   @Override public void generate(StringBuilder row) {
     calendar.add(Calendar.DATE, random.nextInt(rangeDays));
+    calendar.set(Calendar.HOUR, random.nextInt(23));
+    calendar.set(Calendar.MINUTE, random.nextInt(59));
+    calendar.set(Calendar.SECOND, random.nextInt(59));
     String newDate = dateFormat.format(calendar.getTime());
     row.append(newDate);
     calendar.setTime(startDate);

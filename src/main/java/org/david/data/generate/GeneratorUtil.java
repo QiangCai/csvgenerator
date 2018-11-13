@@ -27,7 +27,7 @@ public class GeneratorUtil {
         }
         return new StringGenerator(column);
       } else {
-        return new CardinalityStringGenerator(column);
+        return new PhoneNumberGenerator(column);
       }
     } else if (column.getDataType() instanceof IntType) {
       return new IntGenerator(column);
