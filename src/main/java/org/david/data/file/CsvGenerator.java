@@ -48,8 +48,6 @@ public class CsvGenerator {
       hadoopConfig.set("fs.file.impl",
           org.apache.hadoop.fs.LocalFileSystem.class.getName()
       );
-      hadoopConfig.addResource(new Path("core-site.xml"));
-      hadoopConfig.addResource(new Path("hdfs-site.xml"));
 
       fileSystem = filePath.getFileSystem(hadoopConfig);
 
